@@ -18,5 +18,21 @@ public interface HabitLogRepository extends JpaRepository<HabitLogEntity, Long> 
             LocalDate to
     );
 
-    Optional<HabitLogEntity> findByHabitAndLogDate(HabitEntity habit, LocalDate date);
+    List<HabitLogEntity> findByHabitIdAndLogDateBetweenOrderByLogDateAsc(
+            Long habitId,
+            LocalDate start,
+            LocalDate end
+    );
+
+    List<HabitLogEntity> findByHabitIdAndCompletedIsTrueAndLogDateLessThanOrEqualOrderByLogDateDesc(
+            Long habitId,
+            LocalDate date
+    );
+
+    Optional<HabitLogEntity> findByHabitIdAndLogDate(Long habitId, LocalDate date);
+
+    List<HabitLogEntity> findByHabitIdAndCompletedIsTrueAndLogDateLessThanEqualOrderByLogDateDesc(
+            Long habitId,
+            LocalDate date
+    );
 }

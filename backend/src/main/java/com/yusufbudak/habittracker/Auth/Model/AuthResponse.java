@@ -1,4 +1,4 @@
-package com.yusufbudak.habittracker.Auth;
+package com.yusufbudak.habittracker.Auth.Model;
 
 
 import lombok.*;
